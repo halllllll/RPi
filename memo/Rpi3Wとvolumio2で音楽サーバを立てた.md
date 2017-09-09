@@ -11,7 +11,7 @@
 |  Raspberry Pi 3 W  |  amazonで適当に購入  |
 |  usbキーボードとマウス  |  手持ちに余ってるのがなかったのでわざわざ買った。amazonで適当に欲しいのでいいんじゃないかな  |
 | hdmiケーブルとそれつなぐディスプレイ| もってた |
-| micorSDカードとそれ読み込むUSBリーダー | なかったので適当に購入。カードは流用も考慮してclass10の16GBとした |
+| microSDカードとそれ読み込むUSBリーダー | なかったので適当に購入。カードは流用も考慮してclass10の16GBとした |
 | ラズパイのGPIOにつなぐDAC | amazonで適当に2500円くらいのやつ購入。<br>[これ](http://amzn.asia/76pBinV) |
 | DACのRCA端子につなげるケーブルとスピーカー| そのへんに転がっていたやつ |
 | インターネット | WなのでEthernetケーブル要らん。そもそも探したらもっていなかった|
@@ -44,6 +44,7 @@
 - タイムゾーンを設定したいが、最近のラズパイには<code>raspi-config</code>も<code>dpkg-reconfigures</code>もないらしく、ちょっとggる範囲の情報では対応できないっぽい。<br>
 <code>timedatectl</code>は使えるので、<br>
 <code>sudo timedatectl set-ntp true</code>として適当なNTPサーバから時間情報をとってくるようにする。リブートして<code>date</code>からタイムゾーンがJSTになっているか、現在の時間であっているか確認。再設定の直後だと数十秒のラグがあったので数分くらい時間をおくのがいいのかもしれない（参考までに、ネット速度は54Mb/sであった）
+- 順調に動いていたmicroSDを紛失したため最初から作り直したのだが、PCからのWebUI,iOSアプリのvolumio(後述)ともに、<strong>やたらと接続が遅い</strong>、<strong>やたらと操作が重い</strong>という現象に直面した。</br>その後安定したのだが、音楽データUSBメモリを挿しっぱなしにしたままセットアップを行ったせいかもしれない。<strong>セットアップが終わってから音楽データを挿入すべき、かつMy MusicからのRescanは時間がかかるが必ずすべき</strong>、かもしれない
 
 ### ハマるかと思ったら全然ハマらなかったポイント
 - iTunesで使ってたMusicフォルダの中身をそのまんまUSBメモリにぶっこんでつなげて起動しただけでちゃんと音楽データが読み込まれていた。快適
@@ -65,7 +66,6 @@
     - <code>sudo dpkg-reconfigure locales</code>でロケールの選択。<code>ja_JP.UTF-8 UTF-8</code>に変更
     - Configuring locales画面が出てくる。<code>ja_JP.UTF-8</code>を選択
     - <code>locale</code>コマンドで確認してみてもよくわからんかったけどとりあえず再起動せずともちゃんと表示されてて直っているっぽい
-  
 
 
 [^1]: 注文したときにはギリ8/31日で世間的には夏休みといえた
