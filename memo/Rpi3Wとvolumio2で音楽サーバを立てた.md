@@ -44,7 +44,11 @@
 - タイムゾーンを設定したいが、最近のラズパイには<code>raspi-config</code>も<code>dpkg-reconfigures</code>もないらしく、ちょっとggる範囲の情報では対応できないっぽい。<br>
 <code>timedatectl</code>は使えるので、<br>
 <code>sudo timedatectl set-ntp true</code>として適当なNTPサーバから時間情報をとってくるようにする。リブートして<code>date</code>からタイムゾーンがJSTになっているか、現在の時間であっているか確認。再設定の直後だと数十秒のラグがあったので数分くらい時間をおくのがいいのかもしれない（参考までに、ネット速度は54Mb/sであった）
-- 順調に動いていたmicroSDを紛失したため最初から作り直したのだが、PCからのWebUI,iOSアプリのvolumio(後述)ともに、<strong>やたらと接続が遅い</strong>、<strong>やたらと操作が重い</strong>という現象に直面した。</br>その後安定したのだが、音楽データUSBメモリを挿しっぱなしにしたままセットアップを行ったせいかもしれない。<strong>セットアップが終わってから音楽データを挿入すべき、かつMy MusicからのRescanは時間がかかるが必ずすべき</strong>、かもしれない
+- 順調に動いていたmicroSDを紛失したため最初から作り直したのだが、PCからのWebUI,iOSアプリのvolumio(後述)ともに、<strong>やたらと接続が遅い</strong>、<strong>やたらと操作が重い</strong>という現象に直面した。</br>その後安定したのだが、音楽データUSBメモリを挿しっぱなしにしたままセットアップを行ったせいかもしれない。<strong>セットアップが終わってから（音楽データの入った）USBメモリを挿入すべき、かつMy MusicからのRescanは時間がかかるが必ずすべき</strong>、かもしれない
+- 最初は、任意のネットワークに入りたい場合にまずデフォルトのホットスポットからvolumioに接続し、ネットワークの設定よりパスワードとセキュリティを入れると思われる。このときsaveで自動的にRPiの無線がリフレッシュされるのだが、復帰してからまたホットスポットにつながってしまう場合が多々あった。saveしたらRPiごとリブートすると通る場合があるのでそうする。固定IPをセットしておくと確実性が高まる
+- ssh接続でパスワードを変えようとしたら<code>Authentication token manipulation error</code>がきた。</br>
+意味がわからんが、[ここ](https://importgeek.wordpress.com/2016/06/18/authentication-token-manipulation-error/)を参考に強引な方法らしいが（よくわからんが）やった。うまくいった。
+
 
 ### ハマるかと思ったら全然ハマらなかったポイント
 - iTunesで使ってたMusicフォルダの中身をそのまんまUSBメモリにぶっこんでつなげて起動しただけでちゃんと音楽データが読み込まれていた。快適
@@ -66,6 +70,11 @@
     - <code>sudo dpkg-reconfigure locales</code>でロケールの選択。<code>ja_JP.UTF-8 UTF-8</code>に変更
     - Configuring locales画面が出てくる。<code>ja_JP.UTF-8</code>を選択
     - <code>locale</code>コマンドで確認してみてもよくわからんかったけどとりあえず再起動せずともちゃんと表示されてて直っているっぽい
+- 2017/09/11 21:35</br>
+    microSDやなにやら（不明）を外して再度つなげた状態で、DACからの音が極端に小さくなった。また、音量操作が（webUI, iOSのvolumioアプリから）反映されなくなった。
+    - PLAYBACK OPTIONSのAudio OutputのOutput Deviceがなんかよくわからんやつになっている（DAC Modelに載ってない）やつである場合であった。</br>
+    ふつうに<strong>502 DAC</strong>を選択し直し＆セーブでリブートを勧められるのでそうしたら直ってた
+
 
 
 [^1]: 注文したときにはギリ8/31日で世間的には夏休みといえた
