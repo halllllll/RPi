@@ -26,7 +26,7 @@ Linux向けのカメラソフト。Pythonで書かれているらしい。これ
 ### RPi-Cam-Web-Interface
 [こちら](http://www.e-risingstar.com/?p=1324)に詳しい。あと[からあげさんも使っていた。](http://karaage.hatenadiary.jp/entry/2017/04/06/073000)
 
-とりあえず設定とコマンド叩くだけでいけるPi Cmaeraと、専用ソフトのRPi-Cam-Web-Interface、そして専用OSのmotionEyeOSをやってみる
+<p>とりあえず設定とコマンド叩くだけでいけるPi Cmaeraと、専用ソフトのRPi-Cam-Web-Interface、そして専用OSのmotionEyeOSをやってみる</p>
 
 ## Pi Camera
 [これ](http://www.neko.ne.jp/~freewing/raspberry_pi/raspberry_pi_zero_camera_setup/)はRaspbianでやってみるらしいのでとりあえずなぞる。フレキケーブルの接続まで写真で載っていて非常に親切。
@@ -64,7 +64,8 @@ raspistill -w 1280 -h 720 -o /home/pi/image/test.jpg
 git clone https://github.com/silvanmelchior/RPi_Cam_Web_Interface.git</br>
 cd RPi_Cam_Web_Interface</br>
 ./install.sh
-</code></br>でいける。[参考](https://dantheiotman.com/2017/08/15/video-surveillance-with-a-pi-zero-w-zeroview-and-rpi-cam/)
+</code></br>でいける。
+[参考](https://dantheiotman.com/2017/08/15/video-surveillance-with-a-pi-zero-w-zeroview-and-rpi-cam/)
 
 - 保存先をUSBメモリにしたかったのだがどこをどういじればいいのかわからない（未解決）。
 おそらく[こいつ](http://elinux.org/RPi-Cam-Web-Interface#How_do_I_change_the_path_for_the_video_images_and_pictures.3F)とかを参考にすれば勘の良い人なら少しは分かるんだろうけどわからん。
