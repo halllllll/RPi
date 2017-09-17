@@ -74,6 +74,8 @@
     microSDやなにやら（不明）を外して再度つなげた状態で、DACからの音が極端に小さくなった。また、音量操作が（webUI, iOSのvolumioアプリから）反映されなくなった。
     - PLAYBACK OPTIONSのAudio OutputのOutput Deviceがなんかよくわからんやつになっている（DAC Modelに載ってない）やつである場合であった。</br>
     ふつうに<strong>502 DAC</strong>を選択し直し＆セーブでリブートを勧められるのでそうしたら直ってた
+- 2017/09/18 8:36</br>
+    上でタイムゾーン設定をntpから云々しているが、<code>sudo dpkg-reconfigure tzdata</code>でもいけたっぽい。
 
 
 
